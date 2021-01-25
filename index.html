@@ -355,177 +355,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/Facebook%20%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hugo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hugo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/Facebook%20%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90/" class="post-title-link" itemprop="url">第三方/Facebook 登录集成</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-24 00:39:43" itemprop="dateCreated datePublished" datetime="2021-01-24T00:39:43+08:00">2021-01-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">第三方配置</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h3 id="1-添加依赖"><a href="#1-添加依赖" class="headerlink" title="1.添加依赖"></a>1.添加依赖</h3><p>在对应 Module 的 <strong>build.gradle</strong> 文件下添加以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#39;com.facebook.android:facebook-login:[5,6)&#39;</span><br></pre></td></tr></table></figure>
-<h3 id="2-配置资源和清单"><a href="#2-配置资源和清单" class="headerlink" title="2.配置资源和清单"></a>2.配置资源和清单</h3><p>1.在 <strong>strings.xml</strong> 文件中添加如下配置：</p>
-<blockquote>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;string name&#x3D;&quot;facebook_app_id&quot;&gt;[APP_ID]&lt;&#x2F;string&gt;</span><br><span class="line">&lt;string name&#x3D;&quot;fb_login_protocol_scheme&quot;&gt;fb[APP_ID]&lt;&#x2F;string&gt;</span><br></pre></td></tr></table></figure>
-<p>2.在 <strong>AndroidManifest.xml</strong> 清单文件中添加以下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta-data </span><br><span class="line">android:name&#x3D;&quot;com.facebook.sdk.ApplicationId&quot;</span><br><span class="line">android:value&#x3D;&quot;@string&#x2F;facebook_app_id&quot;&#x2F;&gt; </span><br><span class="line"></span><br><span class="line">&lt;activity </span><br><span class="line">android:name&#x3D;&quot;com.facebook.FacebookActivity&quot;</span><br><span class="line">android:configChanges&#x3D; &quot;keyboard|keyboardHidden|screenLayout|screenSize|orientation&quot; </span><br><span class="line">android:label&#x3D;&quot;@string&#x2F;app_name&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;activity </span><br><span class="line">android:name&#x3D;&quot;com.facebook.CustomTabActivity&quot;</span><br><span class="line">android:exported&#x3D;&quot;true&quot;&gt; </span><br><span class="line">&lt;intent-filter&gt; </span><br><span class="line">&lt;action android:name&#x3D;&quot;android.intent.action.VIEW&quot; &#x2F;&gt;</span><br><span class="line">&lt;category android:name&#x3D;&quot;android.intent.category.DEFAULT&quot; &#x2F;&gt; </span><br><span class="line">&lt;category android:name&#x3D;&quot;android.intent.category.BROWSABLE&quot; &#x2F;&gt;</span><br><span class="line">&lt;data android:scheme&#x3D;&quot;@string&#x2F;fb_login_protocol_scheme&quot; &#x2F;&gt; </span><br><span class="line">&lt;&#x2F;intent-filter&gt;</span><br><span class="line">&lt;&#x2F;activity&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="3-添加集成代码"><a href="#3-添加集成代码" class="headerlink" title="3.添加集成代码"></a>3.添加集成代码</h3><p>1.在 <strong>onCreate()</strong> 或 <strong>onCreateView()</strong> 方法中对facebook SDK进行初始化并注册回调 代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">    * 初始化Facebook</span><br><span class="line">    *&#x2F;</span><br><span class="line">   private fun initFacebook()&#123;</span><br><span class="line">       callbackManager &#x3D; CallbackManager.Factory.create()</span><br><span class="line">       if (Constants.DEBUG) &#123;</span><br><span class="line">           &#x2F;&#x2F;打印facebook 识别应用的 key</span><br><span class="line">           KLog.e(&quot;facebook key&#x3D;$&#123;FacebookSdk.getApplicationSignature(this)&#125;&quot;)</span><br><span class="line">       &#125;</span><br><span class="line">       &#x2F;&#x2F;添加回调</span><br><span class="line">       LoginManager.getInstance().registerCallback(callbackManager,</span><br><span class="line">           object : FacebookCallback&lt;LoginResult&gt; &#123;</span><br><span class="line">               override fun onSuccess(loginResult: LoginResult) &#123;</span><br><span class="line">                   &#x2F;&#x2F; App code</span><br><span class="line">                   KLog.e(&quot;login&quot;, &quot;token: &quot; + loginResult.accessToken.token)</span><br><span class="line">                   val code &#x3D; loginResult.accessToken.token</span><br><span class="line">                   &#x2F;&#x2F;调用后台接口进行登录</span><br><span class="line">                   viewModel?.facebookLogin(code)</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">               override fun onCancel() &#123;</span><br><span class="line">                   &#x2F;&#x2F; App code</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">               override fun onError(exception: FacebookException) &#123;</span><br><span class="line">                   &#x2F;&#x2F; App code</span><br><span class="line">                   KLog.e(&quot;login&quot;, &quot;e: $exception&quot;)</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>2.在 <strong>onActivityResult()</strong> 方法中调用 <strong>callbackManager.onActivityResult()</strong> 将登录结果传递给 <strong>LoginManager</strong> , 代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line"> protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</span><br><span class="line">  super.onActivityResult(requestCode, resultCode, data);</span><br><span class="line">  &#x2F;&#x2F; Facebook 登录结果传递给LoginManager</span><br><span class="line">     callbackManager.onActivityResult(requestCode, resultCode, data);</span><br><span class="line">    </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>3.调用Facebook SDK进行登录，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">    * 调用facebook 登录</span><br><span class="line">    *&#x2F;</span><br><span class="line">   private fun toFacebook()&#123;</span><br><span class="line">       val accessToken &#x3D; AccessToken.getCurrentAccessToken()</span><br><span class="line">       val isLoggedIn &#x3D; accessToken !&#x3D; null &amp;&amp; !accessToken.isExpired</span><br><span class="line">       if (isLoggedIn) &#123;</span><br><span class="line">           &#x2F;&#x2F;判断Facebook是否登录  如果登录先退出</span><br><span class="line">           try &#123;</span><br><span class="line">               LoginManager.getInstance().logOut()</span><br><span class="line">               AccessToken.setCurrentAccessToken(null)</span><br><span class="line">           &#125; catch (e: Exception) &#123;</span><br><span class="line">               e.printStackTrace()</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       &#x2F;&#x2F;调用facebook登录</span><br><span class="line">       LoginManager.getInstance().logInWithReadPermissions(</span><br><span class="line">           this,</span><br><span class="line">           listOf(&quot;public_profile&quot;, &quot;email&quot;, &quot;user_friends&quot;)</span><br><span class="line">       )</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p>5.由于一般情况下我们只是需要Facebook 返回的token识别用户，所以在退出该页面时在<strong>onDestroy()</strong>调用Facebook的退出API,代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">     * 退出Facebook登录</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private fun outFacebook()&#123;</span><br><span class="line">        &#x2F;&#x2F;退出facebook</span><br><span class="line">        val accessToken &#x3D; AccessToken.getCurrentAccessToken()</span><br><span class="line">        val isLoggedIn &#x3D; accessToken !&#x3D; null &amp;&amp; !accessToken.isExpired</span><br><span class="line">        if (isLoggedIn) &#123;</span><br><span class="line">            &#x2F;&#x2F;判断Facebook是否登录  如果登录先退出</span><br><span class="line">            try &#123;</span><br><span class="line">                LoginManager.getInstance().logOut()</span><br><span class="line">                AccessToken.setCurrentAccessToken(null)</span><br><span class="line">            &#125; catch (e: Exception) &#123;</span><br><span class="line">                e.printStackTrace()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>虽然在一般情况下使用Facebook登录就会显示 facebook 识别应用的key,但是有些情况下会出现直接通过登录而不会显示key,这个时候我们可以调用 Facebook 的API进行获取，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FacebookSdk.getApplicationSignature(context)</span><br></pre></td></tr></table></figure>
-
-<p>到这里就集成完毕了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/24/Android/RecyclerView%20%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E6%8C%87%E5%AE%9A%E5%88%B7%E6%96%B0%E5%AF%B9%E5%BA%94item%E7%9A%84%E6%8E%A7%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Hugo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hugo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/Android/RecyclerView%20%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E6%8C%87%E5%AE%9A%E5%88%B7%E6%96%B0%E5%AF%B9%E5%BA%94item%E7%9A%84%E6%8E%A7%E4%BB%B6/" class="post-title-link" itemprop="url">RecyclerView 局部刷新，指定刷新对应item的控件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-24 00:39:43" itemprop="dateCreated datePublished" datetime="2021-01-24T00:39:43+08:00">2021-01-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/%E6%8E%A7%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">控件</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>可以使用</p>
-<figure class="highlight plain"><figcaption><span>``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">第一个参数 index 是刷新哪个item &lt;br&gt; 第二个参数是哪个item里的哪些控件需要刷新的判断值需要我们自己处理，或者不传刷新整个item；</span><br><span class="line"></span><br><span class="line">在 Adapter 中复写  </span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">onBindViewHolder(</span><br><span class="line">        holder: BaseViewHolder,</span><br><span class="line">        position: Int,</span><br><span class="line">        payloads: MutableList&lt;Any&gt;</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-<p>该方法<br>如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">override fun onBindViewHolder(</span><br><span class="line">    holder: BaseViewHolder,</span><br><span class="line">    position: Int,</span><br><span class="line">    payloads: MutableList&lt;Any&gt;</span><br><span class="line">) &#123;</span><br><span class="line">   if (payloads.isEmpty())&#123;</span><br><span class="line">       onBindViewHolder(holder,position)</span><br><span class="line">   &#125;else&#123;</span><br><span class="line">       super.onBindViewHolder(holder, position)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>payloads就是我们在刷新 该item是传入的第二个参数<br>根据  payloads 参数进行判断需要刷新那些控件；如果该参数为null哪么就需要刷新整个item</p>
-<p>在某些情况下recycerView刷新会有闪烁的情况  我们只需要禁止recycleView的动画就好了 如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(swipeRecyclerView?.getItemAnimator() as DefaultItemAnimator).setSupportsChangeAnimations(false)</span><br></pre></td></tr></table></figure>
-
-<p>还有一种是设置动画播放时间为0；<br>如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swipeRecyclerView?.getItemAnimator()?.setChangeDuration(0);&#x2F;&#x2F; 通过设置动画执行时间为0来解决闪烁问题</span><br></pre></td></tr></table></figure>
-<p>不过不推荐使用这种方法，因为在某些情况刷新的item下一个item会晃动一下。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Git%20SSH%E7%94%9F%E6%88%90%E5%92%8C%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -607,6 +436,87 @@
 <li>配置完成后  可以通过如下命令进行测试：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@e.coding.net</span><br><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 如果成功的话对应的服务器会返回对应的应答。<br>到这里就完成了多个SHH公钥的配置了</li>
 </ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/24/Android/RecyclerView%20%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E6%8C%87%E5%AE%9A%E5%88%B7%E6%96%B0%E5%AF%B9%E5%BA%94item%E7%9A%84%E6%8E%A7%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hugo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hugo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/24/Android/RecyclerView%20%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E6%8C%87%E5%AE%9A%E5%88%B7%E6%96%B0%E5%AF%B9%E5%BA%94item%E7%9A%84%E6%8E%A7%E4%BB%B6/" class="post-title-link" itemprop="url">RecyclerView 局部刷新，指定刷新对应item的控件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-24 00:39:43" itemprop="dateCreated datePublished" datetime="2021-01-24T00:39:43+08:00">2021-01-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/%E6%8E%A7%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">控件</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>可以使用</p>
+<figure class="highlight plain"><figcaption><span>``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">第一个参数 index 是刷新哪个item &lt;br&gt; 第二个参数是哪个item里的哪些控件需要刷新的判断值需要我们自己处理，或者不传刷新整个item；</span><br><span class="line"></span><br><span class="line">在 Adapter 中复写  </span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">onBindViewHolder(</span><br><span class="line">        holder: BaseViewHolder,</span><br><span class="line">        position: Int,</span><br><span class="line">        payloads: MutableList&lt;Any&gt;</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<p>该方法<br>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">override fun onBindViewHolder(</span><br><span class="line">    holder: BaseViewHolder,</span><br><span class="line">    position: Int,</span><br><span class="line">    payloads: MutableList&lt;Any&gt;</span><br><span class="line">) &#123;</span><br><span class="line">   if (payloads.isEmpty())&#123;</span><br><span class="line">       onBindViewHolder(holder,position)</span><br><span class="line">   &#125;else&#123;</span><br><span class="line">       super.onBindViewHolder(holder, position)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>payloads就是我们在刷新 该item是传入的第二个参数<br>根据  payloads 参数进行判断需要刷新那些控件；如果该参数为null哪么就需要刷新整个item</p>
+<p>在某些情况下recycerView刷新会有闪烁的情况  我们只需要禁止recycleView的动画就好了 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(swipeRecyclerView?.getItemAnimator() as DefaultItemAnimator).setSupportsChangeAnimations(false)</span><br></pre></td></tr></table></figure>
+
+<p>还有一种是设置动画播放时间为0；<br>如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swipeRecyclerView?.getItemAnimator()?.setChangeDuration(0);&#x2F;&#x2F; 通过设置动画执行时间为0来解决闪烁问题</span><br></pre></td></tr></table></figure>
+<p>不过不推荐使用这种方法，因为在某些情况刷新的item下一个item会晃动一下。</p>
 
       
     </div>
@@ -767,7 +677,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
