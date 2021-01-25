@@ -23,12 +23,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言 在我们日常使用git仓库是进行推送或者拉取时都时需要输入账号和密码，这样很繁琐，那有什么办法解决了：  1.可以把账号和密码保存到本地，但是这种在多账号的情况下会不方便切换账号。 2.可以在git服务器配置SSH公钥，使用SSH协议访问仓库。   1.生成单个SSH公钥1.可以使用以下命令生成SSH公钥： 12ssh-keygen -t rsa -C &#39;xxxxxxx@xxx.com">
+  <meta name="description" content="[toc] 前言 在我们日常使用git仓库是进行推送或者拉取时都时需要输入账号和密码，这样很繁琐，那有什么办法解决了：  1.可以把账号和密码保存到本地，但是这种在多账号的情况下会不方便切换账号。 2.可以在git服务器配置SSH公钥，使用SSH协议访问仓库。   1.生成单个SSH公钥1.可以使用以下命令生成SSH公钥： 12ssh-keygen -t rsa -C &#39;xxxxxxx@x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工具配置&#x2F;Git SSH生成和配置">
 <meta property="og:url" content="http://yoursite.com/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Git%20SSH%E7%94%9F%E6%88%90%E5%92%8C%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hugo">
-<meta property="og:description" content="前言 在我们日常使用git仓库是进行推送或者拉取时都时需要输入账号和密码，这样很繁琐，那有什么办法解决了：  1.可以把账号和密码保存到本地，但是这种在多账号的情况下会不方便切换账号。 2.可以在git服务器配置SSH公钥，使用SSH协议访问仓库。   1.生成单个SSH公钥1.可以使用以下命令生成SSH公钥： 12ssh-keygen -t rsa -C &#39;xxxxxxx@xxx.com">
+<meta property="og:description" content="[toc] 前言 在我们日常使用git仓库是进行推送或者拉取时都时需要输入账号和密码，这样很繁琐，那有什么办法解决了：  1.可以把账号和密码保存到本地，但是这种在多账号的情况下会不方便切换账号。 2.可以在git服务器配置SSH公钥，使用SSH协议访问仓库。   1.生成单个SSH公钥1.可以使用以下命令生成SSH公钥： 12ssh-keygen -t rsa -C &#39;xxxxxxx@x">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/tao111222333444/image/blob/master/GIT_SSH.png?raw=true">
 <meta property="og:image" content="https://github.com/tao111222333444/image/blob/master/GIT_SSH_1.png?raw=true">
@@ -221,7 +221,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+        <p>[toc]</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
 <p>在我们日常使用git仓库是进行推送或者拉取时都时需要输入账号和密码，这样很繁琐，那有什么办法解决了：</p>
 <ul>
 <li>1.可以把账号和密码保存到本地，但是这种在多账号的情况下会不方便切换账号。</li>
