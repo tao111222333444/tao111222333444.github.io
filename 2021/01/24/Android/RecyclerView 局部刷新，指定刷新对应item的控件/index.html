@@ -225,22 +225,22 @@
 
       
         <p>可以使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mAdapter.notifyItemChanged(index,1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mAdapter.notifyItemChanged(index,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
 <p>第一个参数 index 是刷新哪个item <br> 第二个参数是哪个item里的哪些控件需要刷新的判断值需要我们自己处理，或者不传刷新整个item；</p>
 <a id="more"></a>
 
 <p>在 Adapter 中复写  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">onBindViewHolder(</span><br><span class="line">        holder: BaseViewHolder,</span><br><span class="line">        position: Int,</span><br><span class="line">        payloads: MutableList&lt;Any&gt;</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">onBindViewHolder(</span><br><span class="line">        holder: BaseViewHolder,</span><br><span class="line">        position: <span class="built_in">Int</span>,</span><br><span class="line">        payloads: MutableList&lt;Any&gt;</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
 
 <p>该方法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">override fun onBindViewHolder(</span><br><span class="line">    holder: BaseViewHolder,</span><br><span class="line">    position: Int,</span><br><span class="line">    payloads: MutableList&lt;Any&gt;</span><br><span class="line">) &#123;</span><br><span class="line">   if (payloads.isEmpty())&#123;</span><br><span class="line">       onBindViewHolder(holder,position)</span><br><span class="line">   &#125;else&#123;</span><br><span class="line">       super.onBindViewHolder(holder, position)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onBindViewHolder</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    holder: <span class="type">BaseViewHolder</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">    position: <span class="type">Int</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">    payloads: <span class="type">MutableList</span>&lt;<span class="type">Any</span>&gt;</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span> &#123;</span><br><span class="line">   <span class="keyword">if</span> (payloads.isEmpty())&#123;</span><br><span class="line">       onBindViewHolder(holder,position)</span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       <span class="keyword">super</span>.onBindViewHolder(holder, position)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>payloads就是我们在刷新 该item是传入的第二个参数<br>根据  payloads 参数进行判断需要刷新那些控件；如果该参数为null哪么就需要刷新整个item</p>
 <p>在某些情况下recycerView刷新会有闪烁的情况  我们只需要禁止recycleView的动画就好了 如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(swipeRecyclerView?.getItemAnimator() as DefaultItemAnimator).setSupportsChangeAnimations(false)</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(swipeRecyclerView?.getItemAnimator() <span class="keyword">as</span> DefaultItemAnimator).setSupportsChangeAnimations(<span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
 
 <p>还有一种是设置动画播放时间为0；<br>如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swipeRecyclerView?.getItemAnimator()?.setChangeDuration(0);&#x2F;&#x2F; 通过设置动画执行时间为0来解决闪烁问题</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swipeRecyclerView?.getItemAnimator()?.setChangeDuration(<span class="number">0</span>);<span class="comment">// 通过设置动画执行时间为0来解决闪烁问题</span></span><br></pre></td></tr></table></figure>
 <p>不过不推荐使用这种方法，因为在某些情况刷新的item下一个item会晃动一下。</p>
 
     </div>
@@ -261,12 +261,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Git%20SSH%E7%94%9F%E6%88%90%E5%92%8C%E9%85%8D%E7%BD%AE/" rel="prev" title="Git SSH生成和配置">
-      <i class="fa fa-chevron-left"></i> Git SSH生成和配置
+    <a href="/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/" rel="next" title="facebook 密钥散列获取和 中转义的问题 下划线和减号">
-      facebook 密钥散列获取和 中转义的问题 下划线和减号 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Git%20SSH%E7%94%9F%E6%88%90%E5%92%8C%E9%85%8D%E7%BD%AE/" rel="next" title="Git SSH生成和配置">
+      Git SSH生成和配置 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -359,6 +359,14 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/tao111222333444" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;tao111222333444" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://juejin.cn/user/3931509311152654" title="掘金 → https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;3931509311152654" rel="noopener" target="_blank"><i class="fas fa-globe-americas fa-fw"></i>掘金</a>
+      </span>
+  </div>
 
 
 
