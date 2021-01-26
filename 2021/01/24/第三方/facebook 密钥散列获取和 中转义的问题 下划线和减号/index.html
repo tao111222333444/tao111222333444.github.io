@@ -224,6 +224,7 @@
 <h3 id="1-获取facebook的应用密钥散列："><a href="#1-获取facebook的应用密钥散列：" class="headerlink" title="1. 获取facebook的应用密钥散列："></a>1. 获取facebook的应用密钥散列：</h3><p>我们可以通过调用facebookSdk种的 getApplicationSignature()方法进行获取，详细代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val key &#x3D; FacebookSdk.getApplicationSignature(this)</span><br><span class="line"> Log.e(&quot;facebook&quot;,&quot;facebook key&#x3D;$&#123;key&#125;&quot;)</span><br></pre></td></tr></table></figure>
 <p>注意这个密钥散列 在不同的签名下是不一样的，如果我们上架google Play的话需要下载一个 google play的派生包来获取着个密钥散列；</p>
+<a id="more"></a>
 <p>就这样我们就获取到了我们需要的在Facebook后台配置的密钥散列；但是直接把获取到的密钥散列粘贴到Facebook后台会出现报错，密钥格式不正确，哪是我们获取的密钥散列出错了吗，并没有，是因为转义的问题；哪我们接下来就解决这个问题吧。</p>
 <h3 id="2-解析获取到的密钥散列的转义字符；"><a href="#2-解析获取到的密钥散列的转义字符；" class="headerlink" title="2.解析获取到的密钥散列的转义字符；"></a>2.解析获取到的密钥散列的转义字符；</h3><p>我们获取到的密钥散列如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">“Z-x*******f_qc_A***0_V****w”</span><br><span class="line">&#x2F;&#x2F;其中 * 代表正常字符</span><br></pre></td></tr></table></figure>
@@ -332,7 +333,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
