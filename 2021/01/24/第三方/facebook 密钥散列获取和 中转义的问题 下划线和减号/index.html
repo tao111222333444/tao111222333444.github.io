@@ -20,13 +20,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"tohugo.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"www.tohugo.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="前言 在我们使用Facebook登录或其他功能的时候需要在facebook的后台配置对应应用的 密钥散列，而我们怎么获取呢，这就是我接下来要说的；  1. 获取facebook的应用密钥散列：我们可以通过调用facebookSdk种的 getApplicationSignature()方法进行获取，详细代码如下： 12val key &#x3D; FacebookSdk.getApplicatio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="facebook 密钥散列获取和 中转义的问题 下划线和减号">
-<meta property="og:url" content="https://tohugo.com/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/index.html">
+<meta property="og:url" content="https://www.tohugo.com/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/index.html">
 <meta property="og:site_name" content="Hugo">
 <meta property="og:description" content="前言 在我们使用Facebook登录或其他功能的时候需要在facebook的后台配置对应应用的 密钥散列，而我们怎么获取呢，这就是我接下来要说的；  1. 获取facebook的应用密钥散列：我们可以通过调用facebookSdk种的 getApplicationSignature()方法进行获取，详细代码如下： 12val key &#x3D; FacebookSdk.getApplicatio">
 <meta property="og:locale" content="zh_CN">
@@ -36,7 +36,7 @@
 <meta property="article:tag" content="Facebook配置">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://tohugo.com/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/">
+<link rel="canonical" href="https://www.tohugo.com/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/">
 
 
 <script id="page-configurations">
@@ -166,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://tohugo.com/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/">
+    <link itemprop="mainEntityOfPage" href="https://www.tohugo.com/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
