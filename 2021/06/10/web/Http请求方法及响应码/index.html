@@ -23,30 +23,32 @@
     var CONFIG = {"hostname":"www.tohugo.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="博学而笃志,切问而近思。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hugo">
-<meta property="og:url" content="https://www.tohugo.com/index.html">
+  <meta name="description" content="Http请求方法及响应码 前言 本文只是用于速查请求方法和响应码而写的，详细细节请转到 MDN Web Doce 查看。  1.请求方法   方法 作用    GET GET方法请求一个指定资源的表示形式. 使用GET的请求应该只被用于获取数据   POST POST方法用于将实体提交到指定的资源，通常导致在服务器上的状态变化或副作用   PUT PUT方法用请求有效载荷替换目标资源的所有当前表示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web&#x2F;Http请求方法及响应码">
+<meta property="og:url" content="https://www.tohugo.com/2021/06/10/web/Http%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E5%8F%8A%E5%93%8D%E5%BA%94%E7%A0%81/index.html">
 <meta property="og:site_name" content="Hugo">
-<meta property="og:description" content="博学而笃志,切问而近思。">
+<meta property="og:description" content="Http请求方法及响应码 前言 本文只是用于速查请求方法和响应码而写的，详细细节请转到 MDN Web Doce 查看。  1.请求方法   方法 作用    GET GET方法请求一个指定资源的表示形式. 使用GET的请求应该只被用于获取数据   POST POST方法用于将实体提交到指定的资源，通常导致在服务器上的状态变化或副作用   PUT PUT方法用请求有效载荷替换目标资源的所有当前表示">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-10T15:46:43.422Z">
+<meta property="article:modified_time" content="2021-06-10T15:46:43.422Z">
 <meta property="article:author" content="Hugo">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.tohugo.com/">
+<link rel="canonical" href="https://www.tohugo.com/2021/06/10/web/Http%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E5%8F%8A%E5%93%8D%E5%BA%94%E7%A0%81/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Hugo</title>
+  <title>web/Http请求方法及响应码 | Hugo</title>
   
 
 
@@ -156,9 +158,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -174,10 +177,9 @@
       <meta itemprop="name" content="Hugo">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/10/web/Http%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E5%8F%8A%E5%93%8D%E5%BA%94%E7%A0%81/" class="post-title-link" itemprop="url">web/Http请求方法及响应码</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          web/Http请求方法及响应码
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -190,6 +192,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -200,7 +209,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Http请求方法及响应码</p>
+        <p>Http请求方法及响应码</p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
 <p>本文只是用于速查请求方法和响应码而写的，详细细节请转到 <a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank" rel="noopener">MDN Web Doce</a> 查看。</p>
 </blockquote>
@@ -528,569 +537,30 @@
 </tr>
 </tbody></table>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.tohugo.com/2021/01/26/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Hexo%20Next%E4%B8%BB%E9%A2%98%E9%A6%96%E9%A1%B5%E5%8F%AA%E6%98%BE%E7%A4%BA%E9%83%A8%E5%88%86%E6%91%98%E8%A6%81%EF%BC%88%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%85%A8%E6%96%87%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hugo">
-      <meta itemprop="description" content="博学而笃志,切问而近思。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hugo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/26/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Hexo%20Next%E4%B8%BB%E9%A2%98%E9%A6%96%E9%A1%B5%E5%8F%AA%E6%98%BE%E7%A4%BA%E9%83%A8%E5%88%86%E6%91%98%E8%A6%81%EF%BC%88%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%85%A8%E6%96%87%EF%BC%89/" class="post-title-link" itemprop="url">Hexo Next主题首页配置为只显示部分摘要（不显示全文）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-26 23:04:18" itemprop="dateCreated datePublished" datetime="2021-01-26T23:04:18+08:00">2021-01-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>使用Next主题时，首页会默认显示全文，这样就会很不方便，所以需要设置让首页只显示一部分摘要，而不是全文。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/26/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Hexo%20Next%E4%B8%BB%E9%A2%98%E9%A6%96%E9%A1%B5%E5%8F%AA%E6%98%BE%E7%A4%BA%E9%83%A8%E5%88%86%E6%91%98%E8%A6%81%EF%BC%88%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%85%A8%E6%96%87%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.tohugo.com/2021/01/26/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE%EF%BC%88%E5%9C%A8Next%E4%B8%BB%E9%A2%98%E4%B8%8B%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hugo">
-      <meta itemprop="description" content="博学而笃志,切问而近思。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hugo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/26/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE%EF%BC%88%E5%9C%A8Next%E4%B8%BB%E9%A2%98%E4%B8%8B%EF%BC%89/" class="post-title-link" itemprop="url">Hexo添加分类及标签（在Next主题下）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-26 01:23:41" itemprop="dateCreated datePublished" datetime="2021-01-26T01:23:41+08:00">2021-01-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>自建的博客怎么能没有分类和标签呢，所以我就去查了一下怎么去配置分类和标签。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/26/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Hexo%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE%EF%BC%88%E5%9C%A8Next%E4%B8%BB%E9%A2%98%E4%B8%8B%EF%BC%89/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/26/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Hexo%20Next%E4%B8%BB%E9%A2%98%E9%A6%96%E9%A1%B5%E5%8F%AA%E6%98%BE%E7%A4%BA%E9%83%A8%E5%88%86%E6%91%98%E8%A6%81%EF%BC%88%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%85%A8%E6%96%87%EF%BC%89/" rel="prev" title="Hexo Next主题首页配置为只显示部分摘要（不显示全文）">
+      <i class="fa fa-chevron-left"></i> Hexo Next主题首页配置为只显示部分摘要（不显示全文）
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.tohugo.com/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/Facebook%20%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hugo">
-      <meta itemprop="description" content="博学而笃志,切问而近思。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hugo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/Facebook%20%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90/" class="post-title-link" itemprop="url">Facebook 登录集成</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-24 00:39:43" itemprop="dateCreated datePublished" datetime="2021-01-24T00:39:43+08:00">2021-01-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">第三方配置</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="1-添加依赖"><a href="#1-添加依赖" class="headerlink" title="1.添加依赖"></a>1.添加依赖</h3><p>在对应 Module 的 <strong>build.gradle</strong> 文件下添加以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#39;com.facebook.android:facebook-login:[5,6)&#39;</span><br></pre></td></tr></table></figure>
-<h3 id="2-配置资源和清单"><a href="#2-配置资源和清单" class="headerlink" title="2.配置资源和清单"></a>2.配置资源和清单</h3><p>1.在 <strong>strings.xml</strong> 文件中添加如下配置：</p>
-<blockquote>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;string name&#x3D;&quot;facebook_app_id&quot;&gt;[APP_ID]&lt;&#x2F;string&gt;</span><br><span class="line">&lt;string name&#x3D;&quot;fb_login_protocol_scheme&quot;&gt;fb[APP_ID]&lt;&#x2F;string&gt;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/Facebook%20%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.tohugo.com/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hugo">
-      <meta itemprop="description" content="博学而笃志,切问而近思。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hugo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/" class="post-title-link" itemprop="url">facebook 密钥散列获取和 中转义的问题 下划线和减号</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-24 00:39:43" itemprop="dateCreated datePublished" datetime="2021-01-24T00:39:43+08:00">2021-01-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">第三方配置</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>在我们使用Facebook登录或其他功能的时候需要在facebook的后台配置对应应用的 密钥散列，而我们怎么获取呢，这就是我接下来要说的；</p>
-</blockquote>
-<h3 id="1-获取facebook的应用密钥散列："><a href="#1-获取facebook的应用密钥散列：" class="headerlink" title="1. 获取facebook的应用密钥散列："></a>1. 获取facebook的应用密钥散列：</h3><p>我们可以通过调用facebookSdk种的 getApplicationSignature()方法进行获取，详细代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val key &#x3D; FacebookSdk.getApplicationSignature(this)</span><br><span class="line"> Log.e(&quot;facebook&quot;,&quot;facebook key&#x3D;$&#123;key&#125;&quot;)</span><br></pre></td></tr></table></figure>
-<p>注意这个密钥散列 在不同的签名下是不一样的，如果我们上架google Play的话需要下载一个 google play的派生包来获取着个密钥散列；</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/24/%E7%AC%AC%E4%B8%89%E6%96%B9/facebook%20%E5%AF%86%E9%92%A5%E6%95%A3%E5%88%97%E8%8E%B7%E5%8F%96%E5%92%8C%20%E4%B8%AD%E8%BD%AC%E4%B9%89%E7%9A%84%E9%97%AE%E9%A2%98%20%E4%B8%8B%E5%88%92%E7%BA%BF%E5%92%8C%E5%87%8F%E5%8F%B7/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.tohugo.com/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Git%20SSH%E7%94%9F%E6%88%90%E5%92%8C%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hugo">
-      <meta itemprop="description" content="博学而笃志,切问而近思。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hugo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Git%20SSH%E7%94%9F%E6%88%90%E5%92%8C%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Git SSH生成和配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-24 00:39:43" itemprop="dateCreated datePublished" datetime="2021-01-24T00:39:43+08:00">2021-01-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">工具配置</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>在我们日常使用git仓库是进行推送或者拉取时都时需要输入账号和密码，这样很繁琐，那有什么办法解决了：</p>
-<ul>
-<li>1.可以把账号和密码保存到本地，但是这种在多账号的情况下会不方便切换账号。</li>
-<li>2.可以在git服务器配置SSH公钥，使用SSH协议访问仓库。</li>
-</ul>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/Git%20SSH%E7%94%9F%E6%88%90%E5%92%8C%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.tohugo.com/2021/01/24/Android/RecyclerView%20%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E6%8C%87%E5%AE%9A%E5%88%B7%E6%96%B0%E5%AF%B9%E5%BA%94item%E7%9A%84%E6%8E%A7%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hugo">
-      <meta itemprop="description" content="博学而笃志,切问而近思。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hugo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/Android/RecyclerView%20%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E6%8C%87%E5%AE%9A%E5%88%B7%E6%96%B0%E5%AF%B9%E5%BA%94item%E7%9A%84%E6%8E%A7%E4%BB%B6/" class="post-title-link" itemprop="url">RecyclerView 局部刷新，指定刷新对应item的控件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-24 00:39:43" itemprop="dateCreated datePublished" datetime="2021-01-24T00:39:43+08:00">2021-01-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/%E6%8E%A7%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">控件</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>可以使用</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mAdapter.notifyItemChanged(index,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p>第一个参数 index 是刷新哪个item <br> 第二个参数是哪个item里的哪些控件需要刷新的判断值需要我们自己处理，或者不传刷新整个item；</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/24/Android/RecyclerView%20%E5%B1%80%E9%83%A8%E5%88%B7%E6%96%B0%EF%BC%8C%E6%8C%87%E5%AE%9A%E5%88%B7%E6%96%B0%E5%AF%B9%E5%BA%94item%E7%9A%84%E6%8E%A7%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.tohugo.com/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Hugo">
-      <meta itemprop="description" content="博学而笃志,切问而近思。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hugo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-24 00:39:43" itemprop="dateCreated datePublished" datetime="2021-01-24T00:39:43+08:00">2021-01-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -1143,6 +613,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-请求方法"><span class="nav-text">1.请求方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-响应码"><span class="nav-text">2.响应码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
